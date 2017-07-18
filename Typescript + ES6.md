@@ -141,3 +141,27 @@ append(1); //=> [1]
 append(2); //=> [2] instead of [1,2]
 append(3,[1,2]) //=> [1,2,3]
 ```
+
+- For...of: for...of loop uses an iterator to visit the values in an array, not the available keys.
+Example:
+```
+//use for...in
+let sum = 0; 
+let numbers = [1,2,3,4]; 
+ 
+for(let i in numbers) { 
+    sum += numbers[i]; // notice the indexer 
+} 
+ 
+expect(sum).toBe(10);
+
+//use for...of
+let sum = 0;
+let numbers = [1,2,3,4];
+ 
+for(let n of numbers) {
+    sum += n; //don't notice the indexer
+}
+ 
+expect(sum).toBe(10);
+```
