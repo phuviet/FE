@@ -5,6 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'app';
+	hello: string;
+	name: string;
+	constructor(){
+		this.hello = 'Hello World!';
+	}
+	showName1(){
+		this.name = ' Viet Nguyen P.';
+	}
 }
