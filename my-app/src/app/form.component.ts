@@ -1,6 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-
-import { ListComponent } from './list.component'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -8,9 +6,20 @@ import { ListComponent } from './list.component'
   styleUrls: ['./app.component.css']
 })
 
-export class FormComponent{
-	@ViewChild(ListComponent) list: ListComponent;
-	showName(){
-		this.list.show();
-	}
+export class FormComponent implements OnInit{
+
+  // @Output() result: any = new EventEmitter();
+  name: string;
+
+  constructor(){
+
+  }
+
+  ngOnInit(){
+
+  }
+
+  // newMember(){
+  //   this.result.emit(this.name)
+  // }
 }

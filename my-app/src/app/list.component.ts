@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Member } from './member'
 
@@ -8,8 +8,16 @@ import { Member } from './member'
   styleUrls: ['./app.component.css']
 })
 
-export class ListComponent {
-	show(){
-		alert('123');
-	}
+export class ListComponent implements OnInit{
+  // @Input() data: any;
+  data: any;
+
+  constructor(){
+    this.data = [];
+  }
+
+  ngOnInit(){
+
+  }
+
 }
