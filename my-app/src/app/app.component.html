@@ -1,6 +1,45 @@
-<h1>
-  {{hello}} My name is {{name}}
-</h1>
-<button type="button" name="button" (click)="showName1()">Show name</button>
-<app-form></app-form>
-<app-list></app-list>
+<h1>List Trainers</h1>
+<table class="table-hover table-striped table-bordered table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Avatar</th>
+    <th>Team</th>
+    <th>Show</th>
+  </tr>
+  <tr *ngFor="let trainer of trainers, let id = index">
+    <td>{{trainer.name}}</td>
+
+    <td>
+      <span [emptyData]="trainer.birthday"></span>
+    </td>
+    
+    <td><img [ngStyle]="{width: '100px', height: '100px'}" src="{{trainer.img}}"></td>
+    <td *ngIf="trainer.team == 'Ruby'" [ngStyle]="{color: 'yellow'}">{{trainer.team}}</td>
+    <td *ngIf="trainer.team == 'FE'" [ngStyle]="{color: 'red'}">{{trainer.team}}</td>
+    <td><button (click)="showDetail(id)" class="btn btn-info">Detail</button></td>
+  </tr>
+</table>
+<hr>
+<h1>Detail Trainer</h1>
+<div>
+  <table *ngIf="objTrainer != null" class="table-hover table-striped table-bordered table-condensed">
+    <tr class="list-group">
+      <th class="list-group-item">Name</th>
+      <th>Birthday</th>
+      <th>Avatar</th>
+      <th>Team</th>
+    </tr>
+    <tr>
+      <td>{{objTrainer.name}}</td>
+
+      <td><span [emptyData]="objTrainer.birthday"></span></td>
+
+      <td><img [ngStyle]="{width: '100px', height: '100px'}" src="{{objTrainer.img}}"></td>
+      <td *ngIf="objTrainer.team == 'Ruby'" [ngStyle]="{color: 'yellow'}">{{objTrainer.team}}</td>
+      <td *ngIf="objTrainer.team == 'FE'" [ngStyle]="{color: 'red'}">{{objTrainer.team}}</td>
+    </tr>
+  </table>
+</div>
+<!-- <app-form></app-form> -->
+<!-- <app-list></app-list> -->

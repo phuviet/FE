@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form.component';
 import { ListComponent } from './list.component';
+import { EmptyDataDirective } from './empty-data.directive'
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ListComponent,
+    EmptyDataDirective
   ],
   imports: [
     BrowserModule,
