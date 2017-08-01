@@ -1,0 +1,24 @@
+<div class="col-xs-4">
+  <h1>List Trainers</h1>
+  <table class="table-hover table-striped table-bordered table-condensed">
+    <tr>
+      <th>Name</th>
+      <th>Birthday</th>
+      <th>Avatar</th>
+      <th>Team</th>
+      <th>Show</th>
+    </tr>
+    <tr *ngFor="let trainer of trainers, let id = index">
+      <td>{{trainer.name}}</td>
+      <td>
+        <span [emptyData]="trainer.birthday"></span>
+      </td>
+
+      <td><img [ngStyle]="{width: '100px', height: '100px'}" src="{{trainer.img | image}}"></td>
+      <td [colorData]="trainer.team">{{trainer.team}}</td>
+      <td>
+        <button (click)="sendIndex(id)" class="btn btn-info">Detail</button>
+      </td>
+    </tr>
+  </table>
+</div>

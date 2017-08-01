@@ -1,0 +1,20 @@
+<div class="col-xs-3">
+  <h1>Detail Trainer</h1>
+  <table *ngIf="objTrainer" class="table-hover table-striped table-bordered table-condensed">
+    <tr>
+      <th>Name</th>
+      <th>Birthday</th>
+      <th>Avatar</th>
+      <th>Team</th>
+    </tr>
+    <tr>
+      <td>{{objTrainer.name}}</td>
+      <td>
+        <span [emptyData]="objTrainer.birthday"></span>
+      </td>
+
+      <td><img [ngStyle]="{width: '100px', height: '100px'}" src="{{objTrainer.img | image}}"></td>
+      <td [colorData]="objTrainer.team">{{objTrainer.team}}</td>
+    </tr>
+  </table>
+</div>

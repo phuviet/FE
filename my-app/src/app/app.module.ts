@@ -3,22 +3,28 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FormComponent } from './form.component';
-import { ListComponent } from './list.component';
+import { ListTrainersComponent } from './list-trainers.component';
+import { DetailTrainerComponent } from './details-trainer.component';
 import { EmptyDataDirective } from './empty-data.directive'
+import { ColorDataDirective } from './color-data.directive'
+import { DefaultImageAvatarDirective } from './default-image.pipe'
+
+import { TrainersService } from './trainers.service'
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent,
-    ListComponent,
-    EmptyDataDirective
+    ListTrainersComponent,
+    DetailTrainerComponent,
+    EmptyDataDirective,
+    ColorDataDirective,
+    DefaultImageAvatarDirective
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TrainersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
