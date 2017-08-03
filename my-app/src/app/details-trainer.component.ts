@@ -21,10 +21,16 @@ export class DetailTrainerComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.idTrainer;
     this.objTrainer = null;
+
     setTimeout( () => {
-      this.objTrainer = this.trainersService.getDetailTrainer(this.idTrainer);
+      this.trainersService.getDetailTrainer().subscribe((data: any) => {
+        for(let objTrainer of data.trainers) {
+          if(objTrainer.id == this.idTrainer) {
+            this.objTrainer = objTrainer;
+          }
+        }
+      });
     });
   }
 }

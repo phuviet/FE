@@ -17,11 +17,10 @@ export class AppComponent implements OnInit {
   id: any;
 
   constructor() {
-
   }
 
   ngOnInit() {
-    this.list_trainer.sendIndex = (id: any) => {
+    this.list_trainer.sendId = (id: any) => {
       this.id = id;
     }
   }

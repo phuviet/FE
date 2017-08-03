@@ -1,43 +1,26 @@
-import { Component } from '@angular/core'
+import { Injectable } from '@angular/core'
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
+@Injectable()
 export class TrainersService {
 
-  trainers: any;
-
-  constructor() {
-    this.trainers = [
-    {
-      name: 'Kien NT',
-      img: '',
-      birthday: '20/2/1992',
-      team: 'Ruby'
-    },
-    {
-      name: 'Vix Kun',
-      img: 'http://baomoi-photo-1.zadn.vn/16/05/29/139/19495215/7_53731.jpg',
-      birthday: '',
-      team: 'FE'
-    },
-    {
-      name: 'Phien Vin',
-      img: '',
-      birthday: '20/2/1991',
-      team: 'Ruby'
-    },
-    {
-      name: 'Tu Mo',
-      img: 'http://a9.vietbao.vn/images/vn999/55/2015/08/20150831-hot-girl-han-quoc-noi-nhu-con-vi-duong-cong-goi-cam-2.jpg',
-      birthday: '',
-      team: 'PHP'
+  trainers: Array<string> = [];
+  objTrainer: any;
+  constructor(private http: Http) {
+    // this.http.get('/assets/trainers.json').map(res => res.json()).subscribe((data: any) => {
+      //   this.trainers = data.trainers;
+      // });
     }
-    ];
-  }
 
-  getDetailTrainer(id: number) {
-    return this.trainers[id];
-  }
+    getDetailTrainer() {
+      // return this.trainers[id];
+      return this.http.get('/assets/trainers.json').map(res => res.json());
+    }
 
-  getAllTrainers() {
-    return this.trainers;
+    getAllTrainers() {
+      // return this.trainers;
+      return this.http.get('/assets/trainers.json').map(res => res.json());
+    }
   }
-}

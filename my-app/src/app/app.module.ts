@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Http, HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ListTrainersComponent } from './list-trainers.component';
@@ -22,7 +23,8 @@ import { TrainersService } from './trainers.service'
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [TrainersService],
   bootstrap: [AppComponent]

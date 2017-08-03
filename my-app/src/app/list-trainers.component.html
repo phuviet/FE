@@ -8,7 +8,7 @@
       <th>Team</th>
       <th>Show</th>
     </tr>
-    <tr *ngFor="let trainer of trainers, let id = index">
+    <tr *ngFor="let trainer of trainers">
       <td>{{trainer.name}}</td>
       <td>
         <span [emptyData]="trainer.birthday"></span>
@@ -17,7 +17,7 @@
       <td><img [ngStyle]="{width: '100px', height: '100px'}" src="{{trainer.img | image}}"></td>
       <td [colorData]="trainer.team">{{trainer.team}}</td>
       <td>
-        <button (click)="sendIndex(id)" class="btn btn-info">Detail</button>
+        <button (click)="sendId(trainer.id)" class="btn btn-info">Detail</button>
       </td>
     </tr>
   </table>
