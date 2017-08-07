@@ -1,6 +1,65 @@
-<h1>
-  {{hello}} My name is {{name}}
-</h1>
-<button type="button" name="button" (click)="showName1()">Show name</button>
-<app-form></app-form>
-<app-list></app-list>
+<form #memberForm="ngForm" (ngSubmit)="addMember(memberForm)">
+  <fieldset ngModelGroup="personal">
+    <legend>Persional</legend>
+
+    <label for="name">Name</label>
+    <div>
+      <input type="text" name="name" id="name" ngModel required>
+    </div>
+
+    <label for="birthday">Birthday</label>
+    <div>
+      <input type="date" name="birthday" id="birthday" ngModel required>
+    </div>
+
+    <label for="avatar">Avatar</label>
+    <div>
+      <input type="file" name="avatar" id="avatar" ngModel>
+    </div>
+  </fieldset>
+
+  <fieldset ngModelGroup="company">
+    <legend>Company</legend>
+
+    <label for="joined">Joined</label>
+    <div>
+      <input type="date" name="joined" id="joined" ngModel required>
+    </div>
+
+    <label for="team">Team</label>
+    <div>
+      <select name="team" id="team" required>
+        <option selected disabled>---Team---</option>
+        <option value="Ruby">Ruby</option>
+        <option value="PHP">PHP</option>
+        <option value="FE">FE</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <label for="skills">Skills</label>
+    <div>
+      <input type="text" name="skills" id="skills">
+    </div>
+  </fieldset>
+  
+  <button [disabled]="!memberForm.valid" type="submit">Submit</button>
+</form>
+
+<table *ngIf="members.length != 0">
+  <tr>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Avatar</th>
+    <th>Team</th>
+    <th>Joined</th>
+  </tr>
+  <tr *ngFor="let member of members">
+    <td>{{member.personal.name}}</td>
+    <td>{{member.personal.birthday}}</td>
+    <td><img src="{{member.personal.avatar}}"></td>
+    <td>{{member.company.team}}</td>
+    <td>{{member.company.joined}}</td>
+  </tr>
+</table>

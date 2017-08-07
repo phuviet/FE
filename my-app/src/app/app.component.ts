@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { NgForm, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,12 +9,16 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-	hello: string;
-	name: string;
-	constructor(){
-		this.hello = 'Hello World!';
-	}
-	showName1(){
-		this.name = ' Viet Nguyen P.';
-	}
+
+  members: Array<Object>;
+  skills: string;
+
+  constructor(){
+    this.members = [];
+  }
+
+  addMember(form: NgForm) {
+    console.log(form.value);
+    this.members.push(form.value);
+  }
 }
