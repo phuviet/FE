@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
+
+import { ListTrainersComponent } from './list-trainers.component'
+import { DetailTrainerComponent } from './details-trainer.component'
 
 @Component({
   selector: 'app-root',
@@ -6,13 +9,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-	hello: string;
-	name: string;
-	constructor(){
-		this.hello = 'Hello World!';
-	}
-	showName1(){
-		this.name = ' Viet Nguyen P.';
-	}
+export class AppComponent implements OnInit {
+
+  @ViewChild(ListTrainersComponent) list_trainer: any;
+  @ViewChild(DetailTrainerComponent) detail_trainer: any;
+
+  id: any;
+
+  constructor() {
+  }
+
+  ngOnInit() {
+    this.list_trainer.sendId = (id: any) => {
+      this.id = id;
+    }
+  }
 }
