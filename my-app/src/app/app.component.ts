@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { NgForm, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -8,17 +8,58 @@ import { NgForm, FormGroup, FormControl, FormBuilder, Validators } from '@angula
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
+  // @Input('options') option: any;
   members: Array<Object>;
-  skills: string;
+  memberForm: FormGroup;
 
-  constructor(){
+  constructor(private formBuilder: FormBuilder){
     this.members = [];
+
+    this.memberForm = this.formBuilder.group({
+      'personal': this.formBuilder.group({
+        name: ['', Validators.required ],
+        birthday: ['', Validators.required],
+        avatar: ['']
+      }),
+      'company': this.formBuilder.group({
+        joined: ['', Validators.required],
+        team: ['---Chose team---', Validators.required]
+      }),
+      'skills': this.formBuilder.group({
+        skill: ['', Validators.required]
+      })
+    });
+
+    this.memberForm.valueChanges.subscribe((data) => {
+      console.log('Form change', this.memberForm.controls.company['team']);
+    })
   }
 
-  addMember(form: NgForm) {
-    console.log(form.value);
-    this.members.push(form.value);
+  ngOnInit() {
+
+    
+  }
+
+  ngOnChanges() {
+  }
+  // changeOption(value: any) {
+  //   switch (value) {
+  //     case "Ruby":
+  //       // code...
+  //       let regex = 'Ruby'
+  //       break;
+  //     case "PHP":
+  //       break;
+  //     case "FE":
+  //       break;
+  //     default:
+  //       // code...
+  //       break;
+  //   }
+  // }
+
+  addMember() {
   }
 }

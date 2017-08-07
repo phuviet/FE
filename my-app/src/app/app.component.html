@@ -1,35 +1,36 @@
-<form #memberForm="ngForm" (ngSubmit)="addMember(memberForm)">
-  <fieldset ngModelGroup="personal">
+<form [formGroup]="memberForm" (ngSubmit)="addMember()">
+  <fieldset formGroupName="personal">
     <legend>Persional</legend>
 
     <label for="name">Name</label>
     <div>
-      <input type="text" name="name" id="name" ngModel required>
+      <input type="text" id="name" formControlName="name">
+      {{name}}
     </div>
 
     <label for="birthday">Birthday</label>
     <div>
-      <input type="date" name="birthday" id="birthday" ngModel required>
+      <input type="date" id="birthday" formControlName="birthday">
     </div>
 
     <label for="avatar">Avatar</label>
     <div>
-      <input type="file" name="avatar" id="avatar" ngModel>
+      <input type="file" id="avatar" formControlName="avatar">
     </div>
   </fieldset>
 
-  <fieldset ngModelGroup="company">
+  <fieldset formGroupName="company">
     <legend>Company</legend>
 
     <label for="joined">Joined</label>
     <div>
-      <input type="date" name="joined" id="joined" ngModel required>
+      <input type="date" id="joined" formControlName="joined">
     </div>
 
     <label for="team">Team</label>
     <div>
-      <select name="team" id="team" required>
-        <option selected disabled>---Team---</option>
+      <select id="team" formControlName="team">
+        <option>---Chose team---</option>
         <option value="Ruby">Ruby</option>
         <option value="PHP">PHP</option>
         <option value="FE">FE</option>
@@ -37,17 +38,17 @@
     </div>
   </fieldset>
 
-  <fieldset>
+  <fieldset formGroupName="skills">
     <label for="skills">Skills</label>
     <div>
-      <input type="text" name="skills" id="skills">
+      <input type="text" id="skills" formControlName="skill">
     </div>
   </fieldset>
   
   <button [disabled]="!memberForm.valid" type="submit">Submit</button>
 </form>
 
-<table *ngIf="members.length != 0">
+<!-- <table *ngIf="members.length != 0">
   <tr>
     <th>Name</th>
     <th>Birthday</th>
@@ -56,10 +57,10 @@
     <th>Joined</th>
   </tr>
   <tr *ngFor="let member of members">
-    <td>{{member.personal.name}}</td>
-    <td>{{member.personal.birthday}}</td>
-    <td><img src="{{member.personal.avatar}}"></td>
-    <td>{{member.company.team}}</td>
-    <td>{{member.company.joined}}</td>
+    <td></td>
+    <td></td>
+    <td><img src=""></td>
+    <td></td>
+    <td></td>
   </tr>
-</table>
+</table> -->
