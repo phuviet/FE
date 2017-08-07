@@ -11,6 +11,7 @@ import { ColorDataDirective } from './color-data.directive'
 import { DefaultImageAvatarDirective } from './default-image.pipe'
 
 import { TrainersService } from './trainers.service'
+import { AppService } from './share/app.service'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { TrainersService } from './trainers.service'
     FormsModule,
     HttpModule
   ],
-  providers: [TrainersService],
+  providers: [
+  TrainersService,
+  AppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
