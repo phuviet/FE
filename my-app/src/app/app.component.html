@@ -1,11 +1,10 @@
-<form [formGroup]="memberForm" (ngSubmit)="addMember()">
+<form [formGroup]="memberForm" (ngSubmit)="addMember(memberForm.value)">
   <fieldset formGroupName="personal">
     <legend>Persional</legend>
 
     <label for="name">Name</label>
     <div>
       <input type="text" id="name" formControlName="name">
-      {{name}}
     </div>
 
     <label for="birthday">Birthday</label>
@@ -30,7 +29,6 @@
     <label for="team">Team</label>
     <div>
       <select id="team" formControlName="team">
-        <option>---Chose team---</option>
         <option value="Ruby">Ruby</option>
         <option value="PHP">PHP</option>
         <option value="FE">FE</option>
@@ -38,29 +36,34 @@
     </div>
   </fieldset>
 
-  <fieldset formGroupName="skills">
+  <fieldset>
+    <legend></legend>
     <label for="skills">Skills</label>
     <div>
-      <input type="text" id="skills" formControlName="skill">
+      <input type="text" id="skills" formControlName="skills">
     </div>
   </fieldset>
   
   <button [disabled]="!memberForm.valid" type="submit">Submit</button>
 </form>
 
-<!-- <table *ngIf="members.length != 0">
+<table *ngIf="members.length != 0">
   <tr>
     <th>Name</th>
     <th>Birthday</th>
     <th>Avatar</th>
     <th>Team</th>
     <th>Joined</th>
+    <th>Action</th>
   </tr>
   <tr *ngFor="let member of members">
-    <td></td>
-    <td></td>
+    <td>{{member.personal.name}}</td>
+    <td>{{member.personal.birthday}}</td>
     <td><img src=""></td>
-    <td></td>
-    <td></td>
+    <td>{{member.company.team}}</td>
+    <td>{{member.company.joined}}</td>
+    <td>
+      <button (click)="editMember(member)">Edit</button>
+    </td>
   </tr>
-</table> -->
+</table>

@@ -10,56 +10,89 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 
 export class AppComponent implements OnInit {
 
-  // @Input('options') option: any;
   members: Array<Object>;
-  memberForm: FormGroup;
+  teams: Array<string>;
+  memberForm: any;
 
   constructor(private formBuilder: FormBuilder){
+    this.teams = [
+    'FE', 'Ruby', 'PHP'
+    ];
     this.members = [];
 
     this.memberForm = this.formBuilder.group({
       'personal': this.formBuilder.group({
-        name: ['', Validators.required ],
-        birthday: ['', Validators.required],
-        avatar: ['']
+        name: ['', [Validators.required]],
+        birthday: ['', ],
+        avatar: [''] 
       }),
       'company': this.formBuilder.group({
-        joined: ['', Validators.required],
-        team: ['---Chose team---', Validators.required]
+        joined: ['', ],
+        team: ['', [Validators.required]]
       }),
-      'skills': this.formBuilder.group({
-        skill: ['', Validators.required]
-      })
+      skills: []
     });
-
-    this.memberForm.valueChanges.subscribe((data) => {
-      console.log('Form change', this.memberForm.controls.company['team']);
-    })
   }
 
   ngOnInit() {
-
-    
+    this.memberForm.controls.company.controls.team.valueChanges.subscribe(
+      (data: string) => {
+        // if (data === 'PHP') {
+          this.memberForm.setControl('skills', new FormControl('', [Validators.required, this.checkSkillsByTeam]))
+        // } else if (data === 'Ruby') {
+          // this.memberForm.setControl('skills', new FormControl('', [Validators.required, this.checkSkillsRuby]))
+        // } else {
+          // this.memberForm.setControl('skills', new FormControl('', [Validators.required, this.checkSkillsFe]))
+        // }
+        // console.log(data);
+        // let skill: FormControl = new FormControl('', [Validators.required, Validators.pattern(regex)])
+        // this.memberForm.removeControl('skills');
+        // this.memberForm.addControl('skills', skills);
+        
+      })
   }
 
-  ngOnChanges() {
-  }
-  // changeOption(value: any) {
-  //   switch (value) {
-  //     case "Ruby":
-  //       // code...
-  //       let regex = 'Ruby'
-  //       break;
-  //     case "PHP":
-  //       break;
-  //     case "FE":
-  //       break;
-  //     default:
-  //       // code...
-  //       break;
-  //   }
+  // checkSkillsPhp = (input: FormControl) => {
+  //   return this.checkSkillsByTeam(input, 'Laravel')
   // }
 
-  addMember() {
+  // checkSkillsRuby = (input: FormControl) => {
+  //   return this.checkSkillsByTeam(input, 'Rails')
+  // }
+
+  // checkSkillsFe = (input: FormControl) => {
+  //   return this.checkSkillsByTeam(input, 'Angular')
+  // }
+
+  // checkSkillsByTeam(input: FormControl, team: string) {
+  //   const ind = input.value.indexOf(team) < 0;
+  //   return ind ? { skillsInvalid: true } : null;
+  // }
+
+  checkSkillsByTeam = (input: FormControl) => {
+    // console.log(this.memberForm.controls.company.controls.team.value);
+    const team = this.memberForm.controls.company.controls.team.value;
+    switch (team) {
+      case 'PHP':
+        // code...
+        return input.value.indexOf('Laravel') < 0 ? { skillsInvalid: true } : null;
+      case 'FE':
+        // code...
+        return input.value.indexOf('CSS') < 0 ? { skillsInvalid: true } : null;
+      case 'Ruby':
+        // code...
+        return input.value.indexOf('Rails') < 0 ? { skillsInvalid: true } : null;
+    }
+  }
+
+  addMember(value: any) {
+    // console.log(value);
+    this.members.push(value);
+  }
+
+  editMember(member: any) {
+    // console.log(this.memberForm.value);
+    // console.log(member);
+    this.memberForm.setValue(member);
   }
 }
