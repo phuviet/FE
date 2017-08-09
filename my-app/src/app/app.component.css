@@ -23,10 +23,15 @@
 }
 .menu-item {
   float: left;
-  margin-right: 30px;
+  margin-right: 25px;
   display: block;
   margin-top: 7px;
 }
 .clr {
   clear: both;
+}
+.home-image {
+  background-image: url('http://lh5.googleusercontent.com/-B--Z1tWdELw/VbzdqOQ8ZoI/AAAAAAAAQ6Q/3i7FQS4Ksxw/s1600/hinh-nen-girl-xinh-hd.jpg');
+  background-size: cover;
+  padding-bottom: 50%;
 }
