@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
     this.memberForm = this.formBuilder.group({
       'personal': this.formBuilder.group({
-        name: ['Viet', [Validators.required]],
+        name: ['', [Validators.required]],
         birthday: ['', ],
         avatar: [''] 
       }),
