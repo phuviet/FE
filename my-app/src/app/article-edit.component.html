@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Article Edit</h1>
+</div>
+<form [formGroup]="articleForm" (ngSubmit)="editArticle(articleForm.value)">
+  <fieldset [formGroupName]="article">
+    <legend>Article</legend>
+    <label for="title">Title</label>
+    <div>
+      <input type="text" name="title" id="title" [formControlName]="title">
+    </div>
+
+    <label for="image">Image</label>
+    <div>
+      <input type="file" name="image" id="image" [formControlName]="image">
+    </div>
+
+    <label for="content">Content</label>
+    <div>
+      <input type="text" name="content" id="content" [formControlName]="content">
+    </div>
+
+    <label for="author">Author</label>
+    <div>
+      <input type="text" name="author" id="author" [formControlName]="author">
+    </div>
+    <button type="submit">Submit</button>
+  </fieldset>
+</form>

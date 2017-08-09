@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1>Article Detail</h1>
+</div>
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Image</th>
+    <th>Content</th>
+    <th>Author</th>
+  </tr>
+  <tr *ngIf="article">
+    <td>{{article.id}}</td>
+    <td>{{article.title}}</td>
+    <td><img [ngStyle]="{width: '100px', height: '100px'}" src="{{article.image}}"></td>
+    <td>{{article.content}}</td>
+    <td>{{article.author}}</td>
+  </tr>
+</table>
+<a class="btn btn-info" [routerLink]="['/articles']">Back to list</a>
