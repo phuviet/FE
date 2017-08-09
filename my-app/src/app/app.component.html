@@ -1,6 +1,70 @@
-<h1>
-  {{hello}} My name is {{name}}
-</h1>
-<button type="button" name="button" (click)="showName1()">Show name</button>
-<app-form></app-form>
-<app-list></app-list>
+<form [formGroup]="memberForm" (ngSubmit)="addMember(memberForm.value)">
+  <fieldset formGroupName="personal">
+    <legend>Persional</legend>
+
+    <label for="name">Name</label>
+    <div>
+      <input type="text" id="name" formControlName="name">
+    </div>
+
+    <label for="birthday">Birthday</label>
+    <div>
+      <input type="date" id="birthday" formControlName="birthday">
+    </div>
+
+    <label for="avatar">Avatar</label>
+    <div>
+      <input type="file" id="avatar" formControlName="avatar">
+    </div>
+  </fieldset>
+
+  <fieldset formGroupName="company">
+    <legend>Company</legend>
+
+    <label for="joined">Joined</label>
+    <div>
+      <input type="date" id="joined" formControlName="joined">
+    </div>
+
+    <label for="team">Team</label>
+    <div>
+      <select id="team" formControlName="team">
+        <option value="Ruby">Ruby</option>
+        <option value="PHP">PHP</option>
+        <option value="FE">FE</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend></legend>
+    <label for="skills">Skills</label>
+    <div>
+      <input type="text" id="skills" formControlName="skills">
+    </div>
+  </fieldset>
+
+  <button [disabled]="!memberForm.valid" type="submit">Submit</button>
+</form>
+
+<table *ngIf="members.length != 0">
+  <tr>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Avatar</th>
+    <th>Team</th>
+    <th>Joined</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let member of members; let index = index">
+    <td>{{member.personal.name}}</td>
+    <td>{{member.personal.birthday}}</td>
+    <td><img src=""></td>
+    <td>{{member.company.team}}</td>
+    <td>{{member.company.joined}}</td>
+    <td>
+      <button (click)="editMember(member)">Edit</button>
+      <button (click)="deleteMember(index)">Delete</button>
+    </td>
+  </tr>
+</table>
