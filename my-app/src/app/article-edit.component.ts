@@ -24,7 +24,7 @@ export class ArticleEditComponent implements OnInit, OnDestroy {
     this.articleForm = this.formBuilder.group({
       id: ['', []],
       title: ['', [Validators.required]],
-      // image: ['', [Validators.required]],
+      image: ['', [Validators.required]],
       content: ['', [Validators.required]],
       author: ['', Validators.required]
     })
