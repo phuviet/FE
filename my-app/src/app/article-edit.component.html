@@ -1,42 +1,51 @@
-  <h1>Article Edit</h1>
-  <div *ngIf="articleObj">
-    <form [formGroup]="articleForm" (ngSubmit)="editArticle(articleForm.value)" class="row justify-content-md-center">
-
-      <div class="form-group row">
-        <label for="title" class="col-md-2 col-form-label">Title</label>
-        <div  class="col-md-8">
-          <input class="form-control" type="text" name="title" id="title" formControlName="title">
-          <input type="hidden" name="id" id="id" formControlname="id">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="image" class="col-md-2 col-form-label">Image</label>
-        <div class="col-md-8">
-          <span class="btn btn-default btn-file">
-            Browser<input type="file" name="image" id="image">
-          </span>
-          <div>
-            <img [ngStyle]="{width: '150px', height: '150px'}" [src]="imageUrl">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="content" class="col-md-2 col-form-label">Content</label>
-        <div class="col-md-8">
-          <textarea class="form-control" name="content" id="content" formControlName="content"></textarea>
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="author" class="col-md-2 col-form-label">Author</label>
-        <div class="col-md-8">
-          <input class="form-control" type="text" name="author" id="author" formControlName="author">
-        </div>
-      </div>
-
-      <button class="btn btn-warning" [disabled]="!articleForm.valid" type="submit">Submit</button>
-      <a class="btn btn-info" [routerLink]="['/articles']">Back to list</a>
-    </form>
+  
+<div class="form-group row">
+  <div class="col-md-10 pull-right">
+    <h1>Article Edit</h1>
   </div>
+</div>
+<div *ngIf="articleObj">
+  <form [formGroup]="articleForm" (ngSubmit)="editArticle(articleForm.value)" class="row justify-content-md-center">
+
+    <div class="form-group row">
+      <label for="title" class="col-md-2 col-form-label">Title</label>
+      <div  class="col-md-8">
+        <input class="form-control" type="text" name="title" id="title" formControlName="title">
+        <input type="hidden" name="id" id="id" formControlname="id">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="image" class="col-md-2 col-form-label">Image</label>
+      <div class="col-md-8">
+        <span class="btn btn-default btn-file">
+          Browser<input type="file" name="image" id="image">
+        </span>
+        <div>
+          <img [ngStyle]="{width: '150px', height: '150px'}" [src]="imageUrl">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="content" class="col-md-2 col-form-label">Content</label>
+      <div class="col-md-8">
+        <textarea class="form-control" name="content" id="content" formControlName="content"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="author" class="col-md-2 col-form-label">Author</label>
+      <div class="col-md-8">
+        <input class="form-control" type="text" name="author" id="author" formControlName="author">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-10 pull-right">
+        <button class="btn btn-warning" [disabled]="!articleForm.valid" type="submit">Submit</button>
+        <a class="btn btn-info" [routerLink]="['/articles']">Back to list</a>
+      </div>
+    </div>
+  </form>
+</div>
