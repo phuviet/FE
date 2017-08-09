@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ArticleService {
-  articles: any;
 
   constructor(private http: Http) {
 

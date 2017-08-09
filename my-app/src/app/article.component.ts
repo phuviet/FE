@@ -11,7 +11,6 @@ export class ArticleComponent {
   articles: any;
 
   constructor(private articleService: ArticleService) {
-    this.articles = [];
     this.articleService.getListAllArticle().subscribe((data: any) => {
       this.articles = data.articles;
     })

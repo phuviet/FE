@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-inverse clr">
+  <div class="container">
+    <ul class="main-menu">
+      <li [routerLinkActive]="active" class="menu-item"><a  [routerLink]="['/home']" class="btn btn-success">Home</a></li>
+      <li [routerLinkActive]="active" class="menu-item"><a [routerLink]="['/articles']" class="btn btn-success">Articles List</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

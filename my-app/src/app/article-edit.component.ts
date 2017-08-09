@@ -11,12 +11,22 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 export class ArticleEditComponent implements OnInit, OnDestroy {
   articleForm: FormGroup;
-  article: any;
+  articleObj: any;
   id: number;
+  imageUrl: string;
   private sub: any;
-  constructor(private articleService: ArticleService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(
+    private articleService: ArticleService,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
     this.articleForm = this.formBuilder.group({
-      
+      id: ['', []],
+      title: ['', [Validators.required]],
+      // image: ['', [Validators.required]],
+      content: ['', [Validators.required]],
+      author: ['', Validators.required]
     })
   }
 
@@ -26,10 +36,22 @@ export class ArticleEditComponent implements OnInit, OnDestroy {
     })
 
     this.articleService.getDetailArticle().subscribe((data: any) => {
-      this.article = data.articles.find(obj => {
+      // console.log(data.articles);
+      this.articleObj = data.articles.find(obj => {
         return obj.id === this.id;
       });
+      // console.log(this.articleObj);
+      this.imageUrl = this.articleObj.image;
+      this.articleForm.controls.id.setValue(this.articleObj.id);
+      this.articleForm.controls.title.setValue(this.articleObj.title);
+      this.articleForm.controls.content.setValue(this.articleObj.content);
+      this.articleForm.controls.author.setValue(this.articleObj.author);
+      // console.log(this.articleForm.value);
     })
+  }
+
+  editArticle() {
+    this.router.navigate(['/home'])
   }
 
   ngOnDestroy() {
