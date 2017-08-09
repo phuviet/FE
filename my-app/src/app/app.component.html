@@ -43,7 +43,7 @@
       <input type="text" id="skills" formControlName="skills">
     </div>
   </fieldset>
-  
+
   <button [disabled]="!memberForm.valid" type="submit">Submit</button>
 </form>
 
@@ -56,7 +56,7 @@
     <th>Joined</th>
     <th>Action</th>
   </tr>
-  <tr *ngFor="let member of members">
+  <tr *ngFor="let member of members; let index = index">
     <td>{{member.personal.name}}</td>
     <td>{{member.personal.birthday}}</td>
     <td><img src=""></td>
@@ -64,6 +64,7 @@
     <td>{{member.company.joined}}</td>
     <td>
       <button (click)="editMember(member)">Edit</button>
+      <button (click)="deleteMember(index)">Delete</button>
     </td>
   </tr>
 </table>

@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
     this.memberForm = this.formBuilder.group({
       'personal': this.formBuilder.group({
-        name: ['', [Validators.required]],
+        name: ['Viet', [Validators.required]],
         birthday: ['', ],
         avatar: [''] 
       }),
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
     this.memberForm.controls.company.controls.team.valueChanges.subscribe(
       (data: string) => {
         // if (data === 'PHP') {
-          this.memberForm.setControl('skills', new FormControl('', [Validators.required, this.checkSkillsByTeam]))
+          this.memberForm.setControl('skills', new FormControl(this.memberForm.controls.skills.value, [Validators.required, this.checkSkillsByTeam]))
         // } else if (data === 'Ruby') {
           // this.memberForm.setControl('skills', new FormControl('', [Validators.required, this.checkSkillsRuby]))
         // } else {
@@ -72,17 +72,30 @@ export class AppComponent implements OnInit {
   checkSkillsByTeam = (input: FormControl) => {
     // console.log(this.memberForm.controls.company.controls.team.value);
     const team = this.memberForm.controls.company.controls.team.value;
-    switch (team) {
-      case 'PHP':
-        // code...
-        return input.value.indexOf('Laravel') < 0 ? { skillsInvalid: true } : null;
-      case 'FE':
-        // code...
-        return input.value.indexOf('CSS') < 0 ? { skillsInvalid: true } : null;
-      case 'Ruby':
-        // code...
-        return input.value.indexOf('Rails') < 0 ? { skillsInvalid: true } : null;
+
+    let hash = {
+      'Ruby': /Rails|Ruby/,
+      'FE': /CSS|HTML|JS/,
+      'PHP': /Laravel|JS/
     }
+    // return hash[Object.keys(hash).find(key => key === team)].test(input.value) ? null : { skillsInvalid: true }
+    if (Object.keys(hash).includes(team)) {
+      return hash[team].test(input.value) ? null : { skillsInvalid: true }
+    }
+    return { skillsInvalid: true }
+    // switch (team) {
+    //   case 'PHP':
+    //     // code...
+    //     return input.value.indexOf('Laravel') < 0 ? { skillsInvalid: true } : null;
+    //   case 'FE':
+    //     // code...
+    //     return input.value.indexOf('CSS') < 0 ? { skillsInvalid: true } : null;
+    //   case 'Ruby':
+    //     // code...
+    //     let regex = /Rails|Ruby/;
+    //     console.log(regex.test(input.value));
+    //     return regex.test(input.value) ? null : { skillsInvalid: true };
+    // }
   }
 
   addMember(value: any) {
@@ -94,5 +107,9 @@ export class AppComponent implements OnInit {
     // console.log(this.memberForm.value);
     // console.log(member);
     this.memberForm.setValue(member);
+  }
+
+  deleteMember(index: number) {
+    this.members.splice(index, 1);
   }
 }
