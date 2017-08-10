@@ -12,7 +12,10 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
   article: any;
   id: number;
   private sub: any;
-  constructor(private articleService: ArticleService, private route: ActivatedRoute) {}
+  constructor(
+    private articleService: ArticleService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
