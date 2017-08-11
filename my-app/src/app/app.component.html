@@ -1,10 +1,10 @@
 <nav class="navbar navbar-inverse clr">
   <div class="container">
     <ul class="main-menu">
-      <li [routerLinkActive]="active" class="menu-item"><a  [routerLink]="['/home']" class="btn btn-success">Home</a></li>
-      <li [routerLinkActive]="active" class="menu-item"><a [routerLink]="['/articles']" class="btn btn-success">Articles List</a></li>
-      <li [routerLinkActive]="active" class="menu-item"><a  [routerLink]="['/home']" class="btn btn-success">About</a></li>
-      <li [routerLinkActive]="active" class="menu-item"><a  [routerLink]="['/home']" class="btn btn-success">Logout</a></li>
+      <li class="menu-item"><a class="btn btn-success" [routerLink]="['/home']" routerLinkActive="actived" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li class="menu-item"><a [routerLink]="['/articles']" routerLinkActive="actived" class="btn btn-success">Articles List</a></li>
+      <li class="menu-item"><a routerLinkActive="actived" class="btn btn-success">About</a></li>
+      <li class="menu-item"><a routerLinkActive="actived" class="btn btn-success">Logout</a></li>
     </ul>
   </div>
 </nav>

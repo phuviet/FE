@@ -35,3 +35,6 @@
   background-size: cover;
   padding-bottom: 50%;
 }
+.actived {
+  background-color: lightblue;
+}
