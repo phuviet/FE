@@ -1,0 +1,39 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Title article 1",
+      "image": "https://www.w3schools.com/css/img_fjords.jpg",
+      "content": "Lorem ipsum dolor sit amet 1",
+      "author": "Viet Nguyen P."
+    },
+    {
+      "id": 2,
+      "title": "Title article 2",
+      "image": "https://www.w3schools.com/css/img_lights.jpg",
+      "content": "Lorem ipsum dolor sit amet 2",
+      "author": "Viet Nguyen P."
+    },
+    {
+      "id": 3,
+      "title": "Title article 3",
+      "image": "http://www.qygjxz.com/data/out/114/4676052-image.png",
+      "content": "Lorem ipsum dolor sit amet 3",
+      "author": "Viet Nguyen P."
+    },
+    {
+      "id": 4,
+      "title": "Title article 4",
+      "image": "https://www.w3schools.com/css/paris.jpg",
+      "content": "Lorem ipsum dolor sit amet 4",
+      "author": "Viet Nguyen P."
+    },
+    {
+      "id": 5,
+      "title": "Title article 5",
+      "image": "https://www.w3schools.com/w3css/img_forest.jpg",
+      "content": "Lorem ipsum dolor sit amet 5",
+      "author": "Viet Nguyen P."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  cursor: inherit;
+  display: block;
+}
+.main-menu {
+  list-style: none;
+  vertical-align: middle;
+  display: block;
+}
+.menu-item {
+  float: left;
+  margin-right: 25px;
+  display: block;
+  margin-top: 7px;
+}
+.clr {
+  clear: both;
+}
+.home-image {
+  background-image: url('http://lh5.googleusercontent.com/-B--Z1tWdELw/VbzdqOQ8ZoI/AAAAAAAAQ6Q/3i7FQS4Ksxw/s1600/hinh-nen-girl-xinh-hd.jpg');
+  background-size: cover;
+  padding-bottom: 50%;
+}
+.actived {
+  background-color: lightblue;
+}
