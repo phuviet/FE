@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Hoa Hồng",
+      "describe": "Mô tả hoa hồng",
+      "image": "http://hoatuoibattu.vn/wp-content/uploads/2014/12/hoa-hong-mau-tim-1.jpg",
+      "price": 15000
+    },
+    {
+      "id": 2,
+      "name": "Hoa Tulip",
+      "describe": "Mô tả hoa tulip",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Yonina_Tulip.jpg/220px-Yonina_Tulip.jpg",
+      "price": 20000
+    },
+    {
+      "id": 3,
+      "name": "Hoa Cẩm Chướng",
+      "describe": "Mô tả hoa cẩm chướng",
+      "image": "http://blogcaycanh.vn/files/large/8f3c93f4c1bc87a",
+      "price": 20000
+    },
+    {
+      "id": 4,
+      "name": "Hoa Lan",
+      "describe": "Mô tả hoa lan",
+      "image": "http://vuonhoalan.net/images/Rhynchostylis.jpg",
+      "price": 25000
+    },
+    {
+      "id": 5,
+      "name": "Hoa Ly",
+      "describe": "Mô tả hoa ly",
+      "image": "https://media.lamsao.com/Data/phuongnt/05012016/cach_chon_hoa_ly_dep_cho_ngay_tet_them_huong_sac_2.jpg",
+      "price": 30000
+    }
+  ]
+}

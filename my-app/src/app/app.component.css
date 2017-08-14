@@ -1,0 +1,16 @@
+.main-menu {
+  background-color: black;
+  list-style: none;
+}
+
+.menu-item {
+  float: left;
+  margin-right: 20px;
+  padding: 10px 0px;
+}
+
+.clr::after {
+  content: "";
+  display: block;
+  clear: both;
+}

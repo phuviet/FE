@@ -1,0 +1,33 @@
+<div class="col-md-10">
+  <p>
+    cart works!
+  </p>
+  <table *ngIf="carts" class="table table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Describe</th>
+      <th>Image</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total price</th>
+    </tr>
+    <tr *ngFor="let cart of carts">
+      <td>{{cart.name}}</td>
+      <td>{{cart.describe}}</td>
+      <td>
+        <img [ngStyle]="{width: '100px', height: '100px'}" [src]="cart.image">
+      </td>
+      <td>{{cart.quantity}}</td>
+      <td>{{cart.price_format}} VNĐ</td>
+      <td><span [ngStyle]="{color: 'blue'}">{{cart.total_price_format}} <span [ngStyle]="{color: 'red'}">VNĐ</span></span></td>
+    </tr>
+    <tr>
+      <td style="text-align: right;" colspan=5>
+        <span>Total:</span>
+      </td>
+      <td>
+        <span [ngStyle]="{color: 'blue'}">{{total_format}} <span [ngStyle]="{color: 'red'}">VNĐ</span></span>
+      </td>
+    </tr>
+  </table>
+</div>
