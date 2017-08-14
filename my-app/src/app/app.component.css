@@ -1,0 +1,36 @@
+.main-menu {
+  background-color: black;
+  list-style: none;
+}
+
+.menu-item {
+  float: left;
+  margin-right: 20px;
+  padding: 10px 0px;
+}
+
+.clr::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.cart {
+  background: url('http://www.freepngimg.com/download/cart/10-2-cart-png-pic.png') no-repeat;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  float: right;
+  margin-right: 200px;
+  padding-left: 15px;
+}
+
+.cart-item {
+  padding: 0px 5px;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  background-size: cover;
+}

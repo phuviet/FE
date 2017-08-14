@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, DoCheck } from '@angular/core';
+import { ProductsService } from './products.service'
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-	hello: string;
-	name: string;
-	constructor(){
-		this.hello = 'Hello World!';
-	}
-	showName1(){
-		this.name = ' Viet Nguyen P.';
-	}
+export class AppComponent implements OnChanges, DoCheck {
+
+  number_item: number;
+  constructor(
+    private productsService: ProductsService
+    ) {
+  }
+
+  ngOnChanges() {}
+
+  ngDoCheck() {
+    this.number_item = this.productsService.number_item;
+    // console.log(this.productsService.number_item);
+  }
 }
