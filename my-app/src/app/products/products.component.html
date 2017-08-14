@@ -1,0 +1,28 @@
+<div class="col-md-10">
+  <p>
+    products works!
+  </p>
+  <h1>List Products</h1>
+  <table class="table table-hover">
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Describe</td>
+      <td>Price</td>
+      <td>Image</td>
+      <td>Action</td>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.describe}}</td>
+      <td>{{product.price_format}} <span [ngStyle]="{color: 'blue'}">VNĐ</span></td>
+      <td>
+        <img [ngStyle]="{width: '100px', height: '100px'}" [src]="product.image">
+      </td>
+      <td>
+        <button [ngClass]="['btn', 'btn-success']" (click)="addProductToCart(product.id)">Buy</button>
+      </td>
+    </tr>
+  </table>
+</div>
