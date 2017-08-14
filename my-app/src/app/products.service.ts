@@ -8,11 +8,12 @@ export class ProductsService {
 
   carts: any;
   product: any;
-  number_item: number = 0;
+  number_item: number;
 
   constructor(
     private http: Http
-    ) { 
+    ) {
+    this.number_item = 0;
     this.carts = [];
   }
 
